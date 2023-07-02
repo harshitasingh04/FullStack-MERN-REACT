@@ -1,0 +1,111 @@
+1.Write a JavaScript program to display the current day and time in the following format.
+Today is : wednesday.
+Current time is : 10 PM : 30 : 38
+
+function currentDayAndTime(){
+    var currentdate = new Date();
+    var currentday = currentdate.getDay();
+    var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    console.log("Today is " + days[currentday] + ".");
+    var currenthour = currentdate.getHours();
+    var daynight;
+    if(currenthour<12){
+        daynight = "AM";
+    }
+    else{
+        daynight = "PM";
+    }
+    currenthour = (currenthour>12)? currenthour-12: currenthour;
+    var currentminute = currentdate.getMinutes();
+    var currentsecond = currentdate.getSeconds();
+    console.log("Current time is : " + currenthour +" " + daynight + " : " + currentminute + " : " + currentsecond);
+}    
+undefined
+currentDayAndTime();
+VM14300:5 Today is Monday.
+VM14300:17 Current time is : 8 PM : 33 : 48
+undefined
+
+2.Write a JavaScript program to get the current date.
+Expected Output :
+mm-dd-yyyy, mm/dd/yyyy or dd-mm-yyyy, dd/mm/yyyy
+
+function currentDate(){
+    var today = new Date();
+    var date = today.getDate();
+    if(date<10){
+        date = '0'+date;
+    }
+    var month = today.getMonth() + 1;
+    if(month<10){
+        month = '0' + month;
+    }
+    var year = today.getFullYear();
+    console.log(month+'-'+date+'-'+year);
+    console.log(month+'/'+date+'/'+year);
+    console.log(date+'-'+month+'-'+year);
+    console.log(date+'/'+month+'/'+year);
+}
+undefined
+currentDate();
+VM14373:12 07-02-2023
+VM14373:13 07/02/2023
+VM14373:14 02-07-2023
+VM14373:15 02/07/2023
+undefined
+
+3.WAP to print area and perimeter of rectangle , taking input from the user , using prompt
+
+function areaAndPerimeter(){
+    var length = prompt("Please enter the length");
+    var width = prompt("Please enter the width");
+    var area = 0;
+    var perimeter = 0;
+    var calculate = function(){
+        area = length * width;
+        perimeter = 2 *length + 2*width;
+        console.log("Area of the rectangle is " +area);
+        console.log("Perimeter of the rectangle is " +perimeter);
+    }
+    return calculate();
+}
+undefined
+areaAndPerimeter();
+VM15339:9 Area of the rectangle is 200
+VM15339:10 Perimeter of the rectangle is 60
+undefined
+
+4.WAP to rotate the string ‘brainmentors in the right direction. This is done by periodically removing one letter from the string end and attaching it to the front.
+input  = brainmentors
+output = sbrainmentor
+
+function rotateStr(){
+    var str = "Brainmentors";
+    var length = str.length;
+        var start = str.slice(0,length-1);
+        var end = str.charAt(length-1);
+        var newStr = end.concat(start);
+        console.log(newStr);
+}
+undefined
+rotateStr();
+VM17297:7 sBrainmentor
+undefined
+
+5.WAP to find out if 1st January will be a Sunday between 2000 and 2030
+
+function findDay(){
+    for(var i = 2000; i <= 2030; i++){
+        var year = new Date(i, 0, 1); //(Year, Month, Day)
+    if(year.getDay() === 0){
+        console.log("1st Jan of " + year + "is Sunday");
+    }
+    }
+}
+undefined
+findDay();
+VM17156:5 1st Jan of Sun Jan 01 2006 00:00:00 GMT+0530 (India Standard Time)is Sunday
+VM17156:5 1st Jan of Sun Jan 01 2012 00:00:00 GMT+0530 (India Standard Time)is Sunday
+VM17156:5 1st Jan of Sun Jan 01 2017 00:00:00 GMT+0530 (India Standard Time)is Sunday
+VM17156:5 1st Jan of Sun Jan 01 2023 00:00:00 GMT+0530 (India Standard Time)is Sunday
+undefined
