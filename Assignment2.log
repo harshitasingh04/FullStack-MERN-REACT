@@ -1,0 +1,131 @@
+Write a JavaScript function that Print Sum of Even Place and Odd Place Digit
+E.g num = 2914
+O/p Even Place (9+4)
+Odd Place 2+1
+
+function printSum(a){
+    var evensum = 0;
+    var oddsum = 0;
+    var array = a.toString().split('');
+    for(var i = 0; i< array.length; i++){
+        
+        var integer = parseInt(array[i]);
+        var j = i+1;
+        if(j%2==0){
+            evensum = evensum+integer;
+        }
+        else {
+            oddsum = oddsum+integer;
+        }
+    }
+    console.log("Even Sum ="+ evensum + " Odd Sum =" + oddsum);
+}
+undefined
+printSum(2914);
+VM17919:16 Even Sum =13 Odd Sum =3
+undefined
+
+Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word into upper case.
+Example string : ‘learn javascript from brain mentors’
+Expected Output : ‘Learn Javascript From Brain Mentors
+
+function convertFirstLetter(str){
+    var array = str.split(' ');
+    var len = array.length;
+    for(var i = 0; i < len; i++){
+        array[i] = array[i].charAt(0).toUpperCase()+array[i].slice(1);
+    }
+    var string2 = array.join(" ");
+    console.log(string2);
+}
+undefined
+convertFirstLetter("learn javascript from brain mentors");
+VM20156:8 Learn Javascript From Brain Mentors
+undefined
+
+Write a JS Function to validate Phone Number 
+Only number and must be 10 digit long
+
+function validatePhoneNumber(){
+    var number = prompt("Enter Phone Number");
+    var temp;
+    temp = number;
+    var count = 0;
+    while(temp!=0){
+        temp = Math.floor(temp/10);
+        count++;
+    }
+    if(isNaN(number) || count>10 || count<10){
+        console.log("Invalid Phone Number");
+    }
+    else if(count==10){
+        console.log("Valid Phone Number");
+    }
+}
+undefined
+validatePhoneNumber();
+VM21799:14 Valid Phone Number
+undefined
+
+Write a JS Function to validate Email Address
+Must contains @
+Must ends with .com/.org/.edu
+
+function validateEmail(email){
+    if(email.includes('@'))
+    {
+        if(email.endsWith('.com') || email.endsWith('.org') || email.endsWith('.edu'))
+        {
+            console.log("Valid Email");
+        }
+    }
+    else{
+        console.log("Invalid Email");
+    }
+}
+undefined
+validateEmail("harshita@google.com");
+VM22381:6 Valid Email
+undefined
+
+Write a JS Function to find the occurrence of each character in JS
+Input : “brain mentors”
+O/P : b 1
+r 2
+A 1
+I 1
+N 2
+M 1
+E 1
+T 1
+O 1
+S 1
+
+function findOccurence(string){
+    var value = {};
+    var length = string.length;
+    for(var i = 0; i < length; i++){
+        if(value[string[i]]==undefined){
+            value[string[i]]=1;
+        }
+        else{
+            value[string[i]] = value[string[i]]+1;
+        }
+    }
+    for(var key in value){
+        console.log(key, value[key]);
+    }
+}
+undefined
+findOccurence("brainmentors");
+VM23263:13 b 1
+VM23263:13 r 2
+VM23263:13 a 1
+VM23263:13 i 1
+VM23263:13 n 2
+VM23263:13 m 1
+VM23263:13 e 1
+VM23263:13 t 1
+VM23263:13 o 1
+VM23263:13 s 1
+undefined
